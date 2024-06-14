@@ -1,0 +1,14 @@
+python3-nmap
+django
+djangorestframework
+djangorestframework-simplejwt
+dj-rest-auth
+django-allauth
+celery[redis]
+requests
+python-dotenv
+drf-yasg
+django-cors-headers
+setuptools
+lxml
+django-advanced_password_validation
