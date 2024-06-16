@@ -8,13 +8,13 @@ flags = ['-oX', '-']
 def extract_target():
     if not args:
         raise Exception('No target specified')
-    return args.pop()
+    return args.pop().split()
     
 def compose_command():
     target = extract_target()
     nmap_path = get_nmap_path()
     flags.extend(args)
-    return [nmap_path, *flags, target]
+    return [nmap_path, *flags, *target]
 
 try:
     command = compose_command()

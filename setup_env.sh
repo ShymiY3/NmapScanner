@@ -32,7 +32,6 @@ WRAPPER_PATH="$BACKEND_DIR/nmap_wrapper.sh"
 echo "Setting up the wrapper script..."
 cat <<EOF > $WRAPPER_PATH
 #!/bin/bash
-source $VENV_PATH/bin/activate
 exec $VENV_PATH/bin/python $BACKEND_DIR/run_nmap.py "\$@"
 EOF
 chmod +x $WRAPPER_PATH

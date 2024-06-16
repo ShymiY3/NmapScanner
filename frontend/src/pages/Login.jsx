@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setTokens, updateUserData, getUserData } from "../services/auth";
+import { setTokens, updateUserData } from "../services/auth";
 import "../styles.css";
 
 const Login = () => {
@@ -23,14 +23,8 @@ const Login = () => {
       const data = await response.json();
       setTokens(data.access, data.refresh);
       await updateUserData(data.access);
-      const userData = getUserData();
-      if (userData.must_change_password) {
-        toast.warning("Must change password");
-        navigate("/change-password");
-      } else {
-        toast.success("Logged in");
-        navigate("/");
-      }
+      toast.success("Logged in");
+      navigate("/");
     } else {
       toast.error("Login failed");
     }

@@ -22,7 +22,14 @@ const App = () => {
       <ToastContainer />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/change-password" element={<ChangePassword />} />
+        <Route
+          path="/change-password"
+          element={
+            <PrivateRoute>
+              <ChangePassword />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/"
           element={
